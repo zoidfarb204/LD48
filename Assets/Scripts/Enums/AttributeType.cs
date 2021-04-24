@@ -3,6 +3,7 @@
     public enum AttributeType
     {
         GoodQualityPercent,
-        BadQualityPercent
+        BadQualityPercent,
+        Money
     }
 }

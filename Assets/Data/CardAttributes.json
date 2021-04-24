@@ -16,5 +16,11 @@
     "Text": "Decrease the quality of bad contracts by 1%",
     "AttributeType": "BadQualityPercent",
     "Value": "1"
+  },
+  {
+    "ContractType": "Good",
+    "Text": "Receive $100",
+    "AttributeType": "Money",
+    "Value": "100"
   }
 ]
