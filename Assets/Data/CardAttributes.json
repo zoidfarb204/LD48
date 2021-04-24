@@ -1,25 +1,25 @@
 ﻿[
   {
     "ContractType": "Good",
-    "Text": "Increase the quality of good contracts by 1%",
+    "Text": "Increase the quality of good contracts by {0}%",
     "AttributeType": "GoodQualityPercent",
     "Value": "1"
   },
   {
     "ContractType": "Bad",
-    "Text": "Decrease the quality of bad contracts by 1%",
+    "Text": "Decrease the quality of bad contracts by {0}%",
     "AttributeType": "BadQualityPercent",
     "Value": "1"
   },
   {
     "ContractType": "Reject",
-    "Text": "Decrease the quality of bad contracts by 1%",
+    "Text": "Decrease the quality of bad contracts by {0}%",
     "AttributeType": "BadQualityPercent",
     "Value": "1"
   },
   {
     "ContractType": "Good",
-    "Text": "Receive $100",
+    "Text": "Receive ${0}",
     "AttributeType": "Money",
     "Value": "100"
   }

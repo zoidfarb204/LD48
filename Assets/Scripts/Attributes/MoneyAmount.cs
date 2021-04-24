@@ -10,7 +10,7 @@ namespace Attributes
         public void PerformAction(ContractAttribute attribute)
         {
             var money = GameStats.Instance.Money;
-            money = money + attribute.Value;
+            money = money + attribute.GetModifiedValue();
             GameStats.Instance.ChangeValue(StatType.Money, money);
         }
     }

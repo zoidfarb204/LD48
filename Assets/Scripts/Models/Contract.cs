@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Attributes;
 using Enums;
+using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -27,9 +28,13 @@ namespace Models
         public void SetContract(GameObject contractObject)
         {
             contractObject.transform.Find("Title").GetComponent<Text>().text = this.Title;
-            contractObject.transform.Find("Accept").Find("GoodText").GetComponent<Text>().text = $"{GoodAttribute.Text}, but...";
-            contractObject.transform.Find("Accept").Find("BadText").GetComponent<Text>().text = BadAttribute.Text;
-            contractObject.transform.Find("Reject").Find("RejectionText").GetComponent<Text>().text = RejectAttribute.Text;
+            contractObject.transform.Find("Accept").Find("GoodText").GetComponent<Text>().text =
+                $"{GoodAttribute.Text.Replace("{0}", GoodAttribute.GetModifiedValue().ToString())}, but...";
+            contractObject.transform.Find("Accept").Find("BadText").GetComponent<Text>().text =
+                BadAttribute.Text.Replace("{0}", BadAttribute.GetModifiedValue().ToString());
+            contractObject.transform.Find("Reject").Find("RejectionText").GetComponent<Text>().text =
+                RejectAttribute.Text.Replace("{0}",
+                    RejectAttribute.GetModifiedValue().ToString());
         }
 
         public void AcceptContract()

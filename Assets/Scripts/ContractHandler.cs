@@ -19,7 +19,6 @@ public class ContractHandler : MonoBehaviour
     private List<ContractAttribute> ContractAttributes;
 
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,13 +28,14 @@ public class ContractHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
     }
 
     public void DrawContact()
     {
         if (currentContractObject == null)
         {
+            var timeLeft = GameStats.Instance.TimeLeftInDay- GameStats.Instance.TimePerContract;
+            GameStats.Instance.ChangeValue(StatType.Time, timeLeft);
             this.currentContractObject =
                 Instantiate(contractPrefab, new Vector3(0, 0, 0), Quaternion.identity, this.transform);
             this.currentContractObject.transform.localPosition = new Vector3(0, 0, 0);
@@ -49,7 +49,7 @@ public class ContractHandler : MonoBehaviour
         this.currentContract = new Contract(ContractAttributes);
         this.currentContract.SetContract(gameObject);
     }
-    
+
     private void LoadData()
     {
         using (StreamReader r = new StreamReader("./Assets/Data/CardAttributes.json"))
@@ -62,10 +62,18 @@ public class ContractHandler : MonoBehaviour
     public void AcceptContract()
     {
         this.currentContract.AcceptContract();
+        RemoveCard();
     }
 
     public void RejectContract()
     {
         this.currentContract.RejectContract();
+        RemoveCard();
+    }
+
+    private void RemoveCard()
+    {
+        Destroy(this.currentContractObject);
+        this.currentContract = null;
     }
 }

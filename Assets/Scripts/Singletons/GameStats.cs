@@ -8,14 +8,17 @@ namespace Singletons
     {
         private static GameStats instance = null;
         private static readonly object padlock = new object();
-        
+
         public event OnChangeDelegate OnChange;
+
         public delegate void OnChangeDelegate(StatType type, float value);
-        
+
         public float Money { get; private set; }
         public float GoodMultiplier { get; private set; }
         public float BadMultiplier { get; private set; }
-        
+        public float TimeLeftInDay { get; private set; }
+        public float TimePerContract { get; private set; }
+
         public static GameStats Instance
         {
             get
@@ -45,8 +48,14 @@ namespace Singletons
                 case StatType.BadMultiplier:
                     this.BadMultiplier = value;
                     break;
-                  
+                case StatType.Time:
+                    this.TimeLeftInDay = value;
+                    break;
+                case StatType.TimePerContract:
+                    this.TimePerContract = value;
+                    break;
             }
+
             if (OnChange != null)
             {
                 OnChange(statType, value);

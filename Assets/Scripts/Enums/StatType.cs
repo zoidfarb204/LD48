@@ -4,6 +4,8 @@
     {
         Money,
         GoodMultiplier,
-        BadMultiplier
+        BadMultiplier,
+        Time,
+        TimePerContract
     }
 }

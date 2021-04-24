@@ -10,7 +10,7 @@ namespace Attributes
         public void PerformAction(ContractAttribute attribute)
         {
             var goodMultiplier = GameStats.Instance.GoodMultiplier;
-            var amountChange = goodMultiplier * (attribute.Value/100);
+            var amountChange = goodMultiplier * (attribute.GetModifiedValue()/100);
             goodMultiplier = goodMultiplier + amountChange;
             GameStats.Instance.ChangeValue(StatType.GoodMultiplier, goodMultiplier);
         }
