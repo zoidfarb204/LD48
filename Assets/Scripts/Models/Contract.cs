@@ -70,6 +70,9 @@ namespace Models
                 case AttributeType.ContractTimePercentIncrease:
                     new ContractTimePercent().PerformAction(attribute);
                     break;
+                case AttributeType.ContractIncrease:
+                    new ContractNumber().PerformAction(attribute);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -78,7 +81,15 @@ namespace Models
         private ContractAttribute SelectAttribute(ContractType contractType, List<ContractAttribute> attributes)
         {
             var l = attributes.Where(x => x.ContractType == contractType).ToList();
-            return l[Random.Range(0, l.Count)];
+            var selectedAttribute = l[Random.Range(0, l.Count)];
+            return new ContractAttribute
+            {
+                ContractType = selectedAttribute.ContractType,
+                Text = selectedAttribute.Text,
+                AttributeType = selectedAttribute.AttributeType,
+                Value = selectedAttribute.Value
+            }; 
+
         }
     }
 }

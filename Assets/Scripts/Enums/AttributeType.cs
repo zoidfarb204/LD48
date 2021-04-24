@@ -7,6 +7,7 @@
         Money,
         MoneySubtract,
         ContractTimePercentDecrease,
-        ContractTimePercentIncrease
+        ContractTimePercentIncrease,
+        ContractIncrease
     }
 }

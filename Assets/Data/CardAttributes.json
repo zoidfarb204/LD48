@@ -40,5 +40,11 @@
     "Text": "Time to Process a contract Increases by {0}%",
     "AttributeType": "ContractTimePercentIncrease",
     "Value": "1"
+  },
+  {
+    "ContractType": "Bad",
+    "Text": "Number of Contracts Increases by {0}",
+    "AttributeType": "ContractIncrease",
+    "Value": "20"
   }
 ]

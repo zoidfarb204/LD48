@@ -47,7 +47,7 @@ public class ContractHandler : MonoBehaviour
             }
             else
             {
-                //Here we will add an even that allows us to get more contracts at the cost of time
+                //Here we will add an event that allows us to get more contracts at the cost of time
             }
         }
     }
