@@ -61,6 +61,15 @@ namespace Models
                 case AttributeType.Money:
                     new MoneyAmount().PerformAction(attribute);
                     break;
+                case AttributeType.MoneySubtract:
+                    new MoneyAmount().PerformAction(attribute, true);
+                    break;
+                case AttributeType.ContractTimePercentDecrease:
+                    new ContractTimePercent().PerformAction(attribute, true);
+                    break;
+                case AttributeType.ContractTimePercentIncrease:
+                    new ContractTimePercent().PerformAction(attribute);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

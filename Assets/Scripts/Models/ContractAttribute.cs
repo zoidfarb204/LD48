@@ -11,8 +11,9 @@ namespace Models
         public AttributeType AttributeType { get; set; }
         public float Value { get; set; }
         
-        public float GetModifiedValue()
+        public float GetModifiedValue(bool inverse = false)
         {
+            if (inverse) Value = -Value;
             switch (ContractType)
             {
                 case ContractType.Good:

@@ -4,6 +4,6 @@ namespace DefaultNamespace
 {
     public interface IAttribute
     {
-        void PerformAction(ContractAttribute attribute);
+        void PerformAction(ContractAttribute attribute, bool inverse = false);
     }
 }

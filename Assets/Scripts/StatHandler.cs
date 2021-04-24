@@ -13,6 +13,7 @@ public class StatHandler : MonoBehaviour
     public Text GoodMultiplierText;
     public Text BadMultiplierText;
     public Text TimeText;
+    public Text ContractText;
     
     private GameStats _gameStats;
     
@@ -29,6 +30,7 @@ public class StatHandler : MonoBehaviour
         _gameStats.ChangeValue(StatType.BadMultiplier, 1);
         _gameStats.ChangeValue(StatType.Time, 1000);
         _gameStats.ChangeValue(StatType.TimePerContract, 5);
+        _gameStats.UpdateContract(5);
     }
 
     private void UpdateValues(StatType type, float value)
@@ -49,6 +51,9 @@ public class StatHandler : MonoBehaviour
                 break;
             case StatType.TimePerContract:
                 //TODO Add Text Element for this
+                break;
+            case StatType.Contract:
+                this.ContractText.text = GameStats.Instance.Contracts.ToString();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);

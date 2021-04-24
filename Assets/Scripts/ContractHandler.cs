@@ -34,13 +34,21 @@ public class ContractHandler : MonoBehaviour
     {
         if (currentContractObject == null)
         {
-            var timeLeft = GameStats.Instance.TimeLeftInDay- GameStats.Instance.TimePerContract;
-            GameStats.Instance.ChangeValue(StatType.Time, timeLeft);
-            this.currentContractObject =
-                Instantiate(contractPrefab, new Vector3(0, 0, 0), Quaternion.identity, this.transform);
-            this.currentContractObject.transform.localPosition = new Vector3(0, 0, 0);
+            if (GameStats.Instance.Contracts > 0)
+            {
+                var timeLeft = GameStats.Instance.TimeLeftInDay - GameStats.Instance.TimePerContract;
+                GameStats.Instance.UpdateContract(-1);
+                GameStats.Instance.ChangeValue(StatType.Time, timeLeft);
+                this.currentContractObject =
+                    Instantiate(contractPrefab, new Vector3(0, 0, 0), Quaternion.identity, this.transform);
+                this.currentContractObject.transform.localPosition = new Vector3(0, 0, 0);
 
-            SetContract(this.currentContractObject);
+                SetContract(this.currentContractObject);
+            }
+            else
+            {
+                //Here we will add an even that allows us to get more contracts at the cost of time
+            }
         }
     }
 

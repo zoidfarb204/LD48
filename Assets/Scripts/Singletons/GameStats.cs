@@ -18,6 +18,7 @@ namespace Singletons
         public float BadMultiplier { get; private set; }
         public float TimeLeftInDay { get; private set; }
         public float TimePerContract { get; private set; }
+        public int Contracts { get; private set; }
 
         public static GameStats Instance
         {
@@ -59,6 +60,15 @@ namespace Singletons
             if (OnChange != null)
             {
                 OnChange(statType, value);
+            }
+        }
+
+        public void UpdateContract(int value)
+        {
+            this.Contracts = this.Contracts + value;
+            if (OnChange != null)
+            {
+                OnChange(StatType.Contract, value);
             }
         }
     }

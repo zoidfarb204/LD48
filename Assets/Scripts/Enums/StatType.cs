@@ -6,6 +6,7 @@
         GoodMultiplier,
         BadMultiplier,
         Time,
-        TimePerContract
+        TimePerContract,
+        Contract
     }
 }

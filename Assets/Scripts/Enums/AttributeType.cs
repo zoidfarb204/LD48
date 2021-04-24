@@ -4,6 +4,9 @@
     {
         GoodQualityPercent,
         BadQualityPercent,
-        Money
+        Money,
+        MoneySubtract,
+        ContractTimePercentDecrease,
+        ContractTimePercentIncrease
     }
 }
