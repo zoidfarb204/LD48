@@ -14,7 +14,7 @@ public class StatHandler : MonoBehaviour
     public Text BadMultiplierText;
     public Text TimeText;
     public Text ContractText;
-    
+    public Slider ContractSlider;
     private GameStats _gameStats;
     
     
@@ -54,6 +54,7 @@ public class StatHandler : MonoBehaviour
                 break;
             case StatType.Contract:
                 this.ContractText.text = GameStats.Instance.Contracts.ToString();
+                this.ContractSlider.value = GameStats.Instance.Contracts / 100f;
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
