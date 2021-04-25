@@ -3,48 +3,56 @@
     "ContractType": "Good",
     "Text": "Increase the quality of good contracts by {0}%",
     "AttributeType": "GoodQualityPercent",
-    "Value": "1"
+    "ValueMin": "1",
+    "ValueMax": "5"
   },
   {
     "ContractType": "Bad",
     "Text": "Decrease the quality of bad contracts by {0}%",
     "AttributeType": "BadQualityPercent",
-    "Value": "1"
+    "ValueMin": "1",
+    "ValueMax": "5"
   },
   {
     "ContractType": "Reject",
     "Text": "Decrease the quality of bad contracts by {0}%",
     "AttributeType": "BadQualityPercent",
-    "Value": "1"
+    "ValueMin": "1",
+    "ValueMax": "5"
   },
   {
     "ContractType": "Good",
     "Text": "Receive ${0}",
     "AttributeType": "Money",
-    "Value": "100"
+    "ValueMin": "100",
+    "ValueMax": "5000"
   },
   {
     "ContractType": "Bad",
     "Text": "Lose ${0}",
     "AttributeType": "MoneySubtract",
-    "Value": "100"
+    "ValueMin": "100",
+    "ValueMax": "5000"
   },
   {
     "ContractType": "Good",
     "Text": "Time to Process a contract decreases by {0}%",
     "AttributeType": "ContractTimePercentDecrease",
-    "Value": "1"
+    "ValueMin": "1",
+    "ValueMax": "5"
   }, 
   {
     "ContractType": "Bad",
     "Text": "Time to Process a contract Increases by {0}%",
     "AttributeType": "ContractTimePercentIncrease",
-    "Value": "1"
+    "ValueMin": "1",
+    "ValueMax": "5"
   },
   {
     "ContractType": "Bad",
     "Text": "Number of Contracts Increases by {0}",
     "AttributeType": "ContractIncrease",
-    "Value": "20"
+    "ValueMin": "1",
+    "ValueMax": "30"
   }
 ]

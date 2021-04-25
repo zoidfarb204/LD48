@@ -731,6 +731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contractPrefab: {fileID: 8461350806031856365, guid: 8ad08d185f96ddd42bba007852121396,
     type: 3}
+  messagePrefab: {fileID: 4193228675290192812, guid: 7dddd2af732a10c45986353349fcc212,
+    type: 3}
 --- !u!1 &688729142
 GameObject:
   m_ObjectHideFlags: 0

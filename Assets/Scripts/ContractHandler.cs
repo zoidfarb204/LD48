@@ -14,7 +14,9 @@ using Random = UnityEngine.Random;
 public class ContractHandler : MonoBehaviour
 {
     public GameObject contractPrefab;
+    public GameObject messagePrefab;
     private GameObject currentContractObject;
+    private GameObject currentMessageObject;
     private Contract currentContract;
     private List<ContractAttribute> ContractAttributes;
 
@@ -34,9 +36,20 @@ public class ContractHandler : MonoBehaviour
     {
         if (currentContractObject == null)
         {
-            if (GameStats.Instance.Contracts > 0)
+            if (GameStats.Instance.TimeLeftInDay <= 0)
             {
-                var timeLeft = GameStats.Instance.TimeLeftInDay - GameStats.Instance.TimePerContract;
+                //Game Over   
+                this.currentMessageObject = Instantiate(messagePrefab, new Vector3(0, 0, 0), Quaternion.identity,
+                    this.transform);
+                this.currentMessageObject.transform.localPosition = new Vector3(0, 0, 0);
+                currentMessageObject.transform.Find("Title").GetComponent<Text>().text = "Game Over";
+                currentMessageObject.transform.Find("Text").GetComponent<Text>().text =
+                    $"The game is over your final score is ${GameStats.Instance.Money}";
+            }
+            else if (GameStats.Instance.Contracts > 0)
+            {
+                var timeLeft = GameStats.Instance.TimeLeftInDay -
+                               (GameStats.Instance.TimePerContract * GameStats.Instance.Contracts);
                 GameStats.Instance.UpdateContract(-1);
                 GameStats.Instance.ChangeValue(StatType.Time, timeLeft);
                 this.currentContractObject =
@@ -47,7 +60,9 @@ public class ContractHandler : MonoBehaviour
             }
             else
             {
-                //Here we will add an event that allows us to get more contracts at the cost of time
+                this.currentMessageObject = Instantiate(messagePrefab, new Vector3(0, 0, 0), Quaternion.identity,
+                    this.transform);
+                this.currentMessageObject.transform.localPosition = new Vector3(0, 0, 0);
             }
         }
     }
@@ -83,5 +98,13 @@ public class ContractHandler : MonoBehaviour
     {
         Destroy(this.currentContractObject);
         this.currentContract = null;
+    }
+
+    public void AcceptMessage()
+    {
+        Destroy(this.currentMessageObject);
+        GameStats.Instance.UpdateContract(5);
+        var timeLeft = GameStats.Instance.TimeLeftInDay - 100;
+        GameStats.Instance.ChangeValue(StatType.Time, timeLeft);
     }
 }

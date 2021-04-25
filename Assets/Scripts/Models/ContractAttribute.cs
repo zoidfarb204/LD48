@@ -9,8 +9,9 @@ namespace Models
         public ContractType ContractType { get; set; }
         public string Text { get; set; }
         public AttributeType AttributeType { get; set; }
+        public float ValueMin { get; set; }
+        public float ValueMax { get; set; }
         public float Value { get; set; }
-
         public ContractAttribute()
         {
             

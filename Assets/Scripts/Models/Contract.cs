@@ -87,7 +87,9 @@ namespace Models
                 ContractType = selectedAttribute.ContractType,
                 Text = selectedAttribute.Text,
                 AttributeType = selectedAttribute.AttributeType,
-                Value = selectedAttribute.Value
+                ValueMin = selectedAttribute.ValueMin,
+                ValueMax = selectedAttribute.ValueMax,
+                Value = Random.Range(selectedAttribute.ValueMin, selectedAttribute.ValueMax)
             }; 
 
         }

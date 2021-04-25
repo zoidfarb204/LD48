@@ -29,7 +29,7 @@ public class StatHandler : MonoBehaviour
         _gameStats.ChangeValue(StatType.GoodMultiplier, 1);
         _gameStats.ChangeValue(StatType.BadMultiplier, 1);
         _gameStats.ChangeValue(StatType.Time, 1000);
-        _gameStats.ChangeValue(StatType.TimePerContract, 5);
+        _gameStats.ChangeValue(StatType.TimePerContract, 1);
         _gameStats.UpdateContract(5);
     }
 
